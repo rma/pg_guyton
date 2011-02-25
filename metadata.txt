@@ -1,0 +1,595 @@
+#Parameters
+
+A1K	5.00d-001	0.50000E+00	0,167	2	time constant, rapid nonmuscle autoregulation 
+A2K	6.00d+001	0.60000E+02	20	150	time constant, intermediate nonmuscle autoregulation 
+A3K	4.00d+004	0.40000E+05	24000	160000	time constant, long-term nonmuscle autoregulation 
+A4K	1.00d-001	0.10000E+00	0,0333	0,2	time constant, rapid muscle autoregulation 
+A4K2	4.00d+004	0.40000E+05	13300	160000	time constant, long-term muscle autoregulation 
+AARK	1.00d+000	0.10000E+01	0,62	1,2	basic afferent arteriolar resistance 
+ADHPAM	3.00d-001	0.30000E+00	0,1	1,2	sensitivity control of arterial pressure on adh 
+ADHTC	1.50d+001	0.15000E+02	5	60	time constant, adh secretion 
+AH10	3.33d-001	0.33300E+00	0,111	1,33	curve fitting exponent, right atrial pres. on vol receptors 
+AH11	1.00d+003	0.10000E+04	333	4000	time constant, volume receptor adaptation 
+AH9	1.00d+000	0.10000E+01	0,333	4	sensitivity control of ahz 
+AHMNAR	3.00d-001	0.30000E+00	0,1	1,2	sensitivity control, renal effect of adhmk 
+AHTHM	2.00d+000	0.20000E+01	0,667	8	sensitivity controller, effect of adh on thirst 
+ALCLK	3.00d-001	0.30000E+00	0,1	0,9	sensitivity controller of amk1 
+ALDMM	2.50d+000	0.25000E+01	0,833	10	sensitivity controller of aldosterone multiplier 
+AMCSNS	6.50d-001	0.65000E+00	0,4	1	sensitivity controller, aldosterone secretion 
+AMKM	5.00d-001	0.50000E+00	0,3	0,8	sensitivity controller of amk 
+AMKMUL	1.20d+001	0.12000E+02	4	48	sensitivity controller of amr 
+AMNAM	8.00d-001	0.80000E+00	0,27	3,2	sensitivity controller of amna 
+AMT	6.00d+001	0.60000E+02	40	100	time constant, aldo accumulation and destruction 
+ANCSNS	4.00d-001	0.40000E+00	0,23	0,8	sensitivity controller of anm 
+ANMALD	2.50d+000	0.25000E+01	0,833	10	sensitivity controller, angiotensin effect on aldo secretion 
+ANMAM	1.40d+000	0.14000E+01	1	1,688	sensitivity effect of angiotensin on afferent arterioles 
+ANMEM	1.60d+000	0.16000E+01	1	2	sensitivity effect of angiotensin on efferent arterioles 
+ANMKEM	2.00d+000	0.20000E+01	0,667	5	sensitivity controller of anmke 
+ANMNAM	1.00d+000	0.10000E+01	0,333	3	sensitivity controller of dtnang 
+ANMSLT	2.00d+000	0.20000E+01	0,667	4	sensitivity controller anmsml 
+ANMTM	1.50d+000	0.15000E+01	0,5	6	sensitivity controller of anmth 
+ANPTC	4.00d+000	0.40000E+01	1,33	16	time constant, anp accumulation and destruction 
+ANPXAF	1.50d+000	0.15000E+01	0,5	4	sensitivity factor of anp on renal afferent resistance 
+ANT	1.20d+001	0.12000E+02	4	48	time constant, angiotensin accumulation and destruction 
+ANUM	6.00d+000	0.60000E+01	2	8	sensitivity controller of anu 
+ANV	5.00d+003	0.50000E+04	1670	20000	time constant, angiotensin secretion 
+ANY	-2.00d-001	-0.20000E+00	-0,15	-0,4	sensitivity controller of anu for venous volume 
+AUC1	3.00d-001	0.30000E+00	0,1	1,2	sensitivity controller of auc 
+AUDMP	3.00d-001	0.30000E+00	0,1	1,2	damping factor for au1 
+AUK	4.00d-003	0.40000E-02	0,00133	0,016	time constant of baroreceptor adaptation 
+AUMK1	3.00d-001	0.30000E+00	0,1	1,2	autonomic sensitivity controller on ear 
+AUN1	5.00d-001	0.50000E+00	0,167	2	sensitivity controller of aun 
+AUS	1.00d+000	0.10000E+01	0,333	4	sensitivity of sympathetic control of heart rate 
+AUTOGN	7.00d+000	0.70000E+01	2,33	28	gain of very rapid autoregulation (special exp.) 
+AUTOK	1.00d-001	0.10000E+00	0,0333	0,4	rate of development of very rapid autoregulation
+AUTOSN	9.00d-001	0.90000E+00	0,3	1,35	overall sensitivity controller, nonmuscle autoreg. 
+AUV	5.50d-001	0.55000E+00	0,183	2,2	blood volume shifted from unstressed to stressed
+AUX	1.00d+000	0.10000E+01	0,333	2	sensitivity controller of arterial baroreceptors 
+BAROTC	1.60d-001	0.16000E+00	0,06	0,64	time constant, baroreceptor (au6) 
+CFC	1.17d-002	0.11700E-01	0,0039	0,02	capillary filtration coefficient 
+CNR	1.39d+002	0.13900E+03	130	141,9	reference sodium conc to determine adh secretion rate 
+CPF	3.00d-004	0.30000E-03	0,0001	0,0012	pulmonary capillary filtration coefficient 
+CPR	4.00d+001	0.40000E+02	23	62	critical plasma protein conc for protein destruction 
+CV	0.50d-001	0.50000E-01	0,0333	0,16	modified venous compliance [P]
+DHDTR	5.00d-002	0.50000E-01	0,0167	0,2	proportionality constant, cardiac deterioration 
+DIURET	1.00d+000	0.10000E+01	0,58	4	diuretic effect on tubular reabsorption 
+DR	0.00d+000	0.00000E+00	0	0,001	rate of water drinking (in addition of thirst)
+DTNAR	6.75d-001	0.67500E+00	0,225	1,05	sensitivity controller of dtnara 
+EARK	1.00d+000	0.10000E+01	0,67	1,5	basic efferent arteriolar resistance 
+EXC	1.00d+000	0.10000E+01	0,8	2	level of exercise activity 
+EXCML	1.00d-002	0.10000E-01	0,00333	0,027	sensitivity controller of exercise on autonomics 
+EXE	0.00d+000	0.00000E+00	0	3	driving pressure on autonomic due to exercise 
+FIS	0.00d+000	0.00000E+00	0	0,04	fistula conductance factor
+GFLC	2.08d-002	0.20800E-01	0,00693	0,026	glomerular filtration coefficient 
+GFNDMP	3.00d+000	0.30000E+01	2,1	9,2	gfn damping coefficient 
+GPPD	1.00d+000	0.10000E+01	0,85	4	damping coefficient glpc 
+HM6	1.85d+003	0.18500E+04	617	2700	erythropoietic limiter 
+HM8	4.71d-008	0.47100E-07	0,0000000457	0,00000005	sensitivity control for erythropoiesis 
+HMK	9.00d+001	0.90000E+02	50		360	portion of blood viscosity due to red blood cells
+HMTRNS	4.00d+001	0.40000E+02	13,3		160	hematocrit of transfused blood
+HSL	1.00d+000	0.10000E+01	0,58		1,6	basic strength of left ventricle
+HSR	1.00d+000	0.10000E+01	0,6		1,42	basic strength of right ventricle
+HTAUML	4.00d-001	0.40000E+00	0,133		0,9	autonomic sensitivity on pra 
+HYL	6.00d+001	0.60000E+02	40		75	quantity of hyaluronic acid in tissues
+KID	8.00d-002	0.80000E-01	0,0267		0,16	rate of potassium intake
+KORGN	1.00d+000	0.10000E+01	0,333		4	gain of positive feedback, korner concept 
+KORTC	1.00d+004	0.10000E+05	3330		40000	time constant, korner effect 
+LPPR	3.00d-002	0.30000E-01	0,01		0,12	rate of liver protein production 
+MDFLKM	6.67d-001	0.66700E+00	0,222		1,26	sensitivity controller of mdflk 
+MDFLW2	5.00d-003	0.50000E-02	0,00167		0,02	iteration limiter, renal autoregulation 
+MDFLWX	1.00d-002	0.10000E-01	0,00333		0,02	sensitivity controller of mdfl3 
+NID	1.00d-001	0.10000E+00	0,04		0,25	rate of sodium intake
+O2A	1.00d-001	0.10000E+00	0,0333		0,26	sensitivity controller of aom, autonomic on metabolism 
+O2CHMO	1.00d-002	0.10000E-01	0,00333		0,04	o2 chemoreceptors sensitivity controller 
+O2M	1.64d+002	0.16400E+03	138		180	basic o2 utilization in nonmuscle tissues
+OMM	5.71d+001	0.57100E+02	39		95	basic o2 utilization in muscle tissues (at rest) 
+PCR	1.50d+001	0.15000E+02	5		20	critical capillary pressure for protein leakage 
+PM5	3.00d+001	0.30000E+02	20		120	constant, to change muscle capillarity 
+POR	3.50d+001	0.35000E+02	25		41	reference value of capillary po2 in non-muscle tissue 
+PXTP	8.00d+000	0.80000E+01	5		12	proximal tubular hydrostatic pressure 
+QRF	1.50d-001	0.15000E+00	0,05		0,6	left ventricle funct effect on right ventricle function 
+RABSC	5.00d-001	0.50000E+00	0,167		0,8	peritubular capillary reabsorption coefficient 
+RCDFPC	0.00d+000	0.00000E+00	0		4	renal function curve drift coefficient 
+REK	1.00d+000	0.10000E+01	0,333		1	total functional renal mass, ratio to normal 
+RFABDM	3.00d-001	0.30000E+00	0,1		0,4	sensitivity controller of rfabd 
+RFABDP	1.00d+000	0.10000E+01	0,667		4	rfab damping factor 
+RFABKM	3.00d-002	0.30000E-01	0,01		0,053	proportionality constant, rfabk 
+RNAGTC	1.50d+001	0.15000E+02	7		60	time constant, renal autoregulation feedback 
+RNAUGN	6.00d-001	0.60000E+00	0,2		1,1	basal renal autoregulation feedback multiplier
+RTPPR	9.00d-001	0.90000E+00	0,7		3,6	renal oncotic, internal var 
+RTPPRS	1.52d+001	0.15200E+02	5,07		18	renal oncotic, internal var 
+RTSPRS	6.00d+000	0.60000E+01	3		10	renal tissue fluid pressure 
+RVSM	1.00d+000	0.10000E+01	0,7		1,5	basal systemic venous multiplier 
+SR	1.00d+000	0.10000E+01	0,333		2,5	sensitivity controller, short-term stress relaxation 
+SR2	1.00d+000	0.10000E+01	0,333		4	sensitivity controller, long-term stress relaxation 
+SRK	5.00d+000	0.50000E+01	1,67		15	short time constant for stress relaxation 
+SRK2	1.00d+004	0.10000E+05	3330		40000	long time constant for stress relaxation 
+TENSTC	5.00d-002	0.50000E-01	0,0167		0,2	time constant, myogenic autoregulation 
+TSSLML	1.50d-001	0.15000E+00	0,05		0,6	sensitivity controller of vts 
+TSSLTC	5.00d-003	0.50000E-02	0,00167		0,09	vts1 time constant 
+TVDDL	3.00d+001	0.30000E+02	10		90	tvd damping coefficient 
+U	4.00d+000	0.40000E+01	1,33		8	damping coefficient, circulation 
+URFORM	2.40d-001	0.24000E+00	0,08		0,96	rate of urea formation
+VIDML	1.00d-002	0.10000E-01	0,00333		0,04	proportionality constant, ccd to vid 
+VNTSTM	1.00d+000	0.10000E+01	0,333		4	sensitivity controller for alveolar ventilation 
+VPTISS	1.75d-002	0.17500E-01	0,00583		0,07	pulmonary tissue fluid volume 
+VV9	2.51d+000	0.25100E+01	2,2		2,7	basic venous volume, without autonomic drive 
+
+
+
+#Other Parameters
+
+AARLL	4.00d+000	0.40000E+01	aar lower limit 
+ADHINF	0.00d+000	0.00000E+00	rate of exogenous adh infusion 
+ADHKLL	2.00d-001	0.20000E+00	adhmk lower limit 
+ADHKUL	5.00d+000	0.50000E+01	adhmk upper limit 
+ADHPUL	8.50d+001	0.85000E+02	adhpa upper limit 
+ADHVLL	9.36d-001	0.93600E+00	adhmv lower limit 
+ADHVUL	2.50d+000	0.25000E+01	adhmv upper limit 
+ALDINF	0.00d+000	0.00000E+00	rate of exogenous aldosterone infusion 
+ALDKNS	0.00d+000	0.00000E+00	overriding value for aldosterone secretion 
+AM1LL	0.00d+000	0.00000E+00	am1 lower limit 
+AM1UL	5.00d+000	0.50000E+01	am1 upper limit 
+AMM1LM	5.00d-003	0.50000E-02	iteration limiter for amm1 
+AMM4	5.00d-003	0.50000E-02	amm1 lower limit 
+AMNALL	4.00d-002	0.40000E-01	amna lower limit 
+AMNAUL	1.50d+001	0.15000E+02	amna upper limit 
+ANGINF	0.00d+000	0.00000E+00	rate of exogenous angiotensin infusion 
+ANGKNS	0.00d+000	0.00000E+00	overriding value for angiotensin secretion 
+ANMARL	8.60d-001	0.86000E+00	anmar lower limit 
+ANMKEL	3.00d-001	0.30000E+00	anmke lower limit 
+ANMLL	7.00d-001	0.70000E+00	anm lower limit 
+ANMUL	1.80d+000	0.18000E+01	anm upper limit 
+ANPXUL	1.00d+001	0.10000E+02	anpx upper limit 
+ANULL	8.00d-001	0.80000E+00	anu lower limit 
+ANUVM	0.00d+000	0.00000E+00	sensitivity controller of anuvn 
+ANXM	0.00d+000	0.00000E+00	sensitivity controller of anx 
+AR1LM	5.00d-003	0.50000E-02	iteration limiter for ar1 
+AR2LM	5.00d-003	0.50000E-02	iteration limiter for ar2 
+ARF	5.00d-001	0.50000E+00	sensitivity controller of aumk 
+AUL	1.50d+000	0.15000E+01	curve fitting coefficient, calculation vvr 
+AULPM	0.00d+000	0.00000E+00	sensitivity controller of aulp 
+AUM1	3.00d+000	0.30000E+01	curve fitting coefficient, calculation aum 
+AUM2	1.00d+000	0.10000E+01	curve fitting exponent, calculation aum 
+AUMAX	5.00d+000	0.50000E+01	maximal autonomic output 
+AUMIN	4.00d-001	0.40000E+00	minimal autonomic output 
+AUSLP	1.50d+000	0.15000E+01	curve fitting coefficient, calculation au 
+CKEEX	4.00d+000	0.40000E+01	curve fitting exponent, distal potassium reabsorption 
+CMPTSS	2.00d+000	0.20000E+01	curve fitting exponent, calculation of chy 
+CN2	2.12d-002	0.21200E-01	curve fitting coefficient, calculation of cn3 
+CN7	2.00d-001	0.20000E+00	curve fitting coefficient, calculation of cn3 
+CPK	2.53d-004	0.25300E-03	curve fitting exponent, , capillary leakage 
+DTNARL	1.00d-006	0.10000E-05	lower limiter of dtnara 
+EARLL	2.40d+001	0.24000E+02	lower limit for ear 
+EFAFR	0.00d+000	0.00000E+00	efferent arteriolar feedback, sensitivity controller 
+EXCXP	1.00d+000	0.10000E+01	curve fitting exponent, autonomic effect of exercise 
+EXCXP2	1.70d-001	0.17000E+00	exponent factor of exercise on muscle metabolism 
+GCOPF	8.09d-001	0.80900E+00	coefficient, calculation of ptc 
+GFNLL	1.00d-003	0.10000E-02	gfn lower limit 
+I2	3.00d-003	0.30000E-02	iteration interval of circulatory dynamics 
+I3	2.00d+001	0.20000E+02	maximum iteration of major iteration 
+I4	1.00d-001	0.10000E+00	integration step renal autoregulation 
+I6	1.00d-001	0.10000E+00	integration step for dtka computation 
+I8	2.00d-003	0.20000E-02	integration step for ova computation 
+I10	1.00d-003	0.10000E-02	integration step for qo2 computation 
+I12	1.00d-003	0.10000E-02	integration step for qom computation 
+I14	1.00d+000	0.10000E+01	integration step for vic computation 
+I16	5.00d-004	0.50000E-03	integration step for ar1 computation 
+I18	1.00d+000	0.10000E+01	integration step for ar2 computation 
+I20	1.00d-002	0.10000E-01	integration step for amm1 computation 
+LPDE	8.00d+000	0.80000E+01	curve fitting coefficient, liver protein destruction 
+LPK	2.73d-014	0.27300E-13	curve fitting coefficient, liver protein destruction 
+MDFL1	1.00d+001	0.10000E+02	sensitivity controller of mdflw 
+MDMP	0.00d+000	0.00000E+00	damping factor of au6 
+PA4	1.00d+000	0.10000E+01	maximum deviation of pa (hemodynamic iteration) 
+PAEX	2.00d+000	0.20000E+01	exponential factor affecting pam 
+PCE	1.00d+000	0.10000E+01	curve fitting exponent, capillary leakage 
+PGHF	-2.00d+000	-0.20000E+01	proportionality coefficent, chy to pgh 
+PK2	7.92d-001	0.79200E+00	proportionality constant, muscle tissue po2 
+PL2	1.80d+000	0.18000E+01	constant, computation of rspdfc 
+PLDF	4.20d+000	0.42000E+01	constant pressure, computation of pld 
+PO2ADV	1.00d-003	0.10000E-02	iteration limiter, arterial po2 
+POK	1.00d-001	0.10000E+00	sensitivity control, rapid nonmuscle autoregulation 
+POM	4.00d-002	0.40000E-01	sensitivity control, rapid muscle autoregulation 
+POM2	2.00d+000	0.20000E+01	sensitivity control, long-term muscle autoregulation 
+PON	1.00d-001	0.10000E+00	sensitivity control, intermediate nonmuscle autoregulation
+POZ	2.00d+000	0.20000E+01	sensitivity control, long-term nonmuscle autoregulation 
+PR1LL	0.00d+000	0.00000E+00	pr1 lower limit 
+QAOLM	2.00d-001	0.20000E+00	limiter for flow equilibrium 
+RAPRSP	0.00d+000	0.00000E+00	overriding value of renal arterial pressure (if > 0) 
+RAR	3.05d+001	0.30500E+02	basal non-muscle vascular resistance 
+RCDFDP	2.00d+003	0.20000E+04	renal function curve drift damping factor 
+RKC	5.80d-006	0.58000E-05	sensitivity for red blood cell destruction 
+RNAUAD	0.00d+000	0.00000E+00	renal autoregulation, adaptation controller 
+RVRS	1.92d+001	0.19200E+02	curve fitting coefficient, rcprs 
+STA	0.00d+000	0.00000E+00	overriding value of overall autonomic activity 
+TENSGN	0.00d+000	0.00000E+00	gain, myogenic autoregulation 
+TIMETR	0.00d+000	0.00000E+00	transfusion time (if > 0) 
+TRNSFS	0.00d+000	0.00000E+00	rate of blood transfusion (l/min) 
+TRPL	0.00d+000	0.00000E+00	transfusion coefficient 
+VID1	1.00d-002	0.10000E-01	iteration limiter, vid loop 
+VP1	1.00d-002	0.10000E-01	stability limiter of vpd, time test 
+VTSF	6.00d+000	0.60000E+01	curve fitting coefficient, ptt 
+X	4.00d+000	0.40000E+01	damping coefficient, circulation 
+Z	1.00d+000	0.10000E+01	damping factor for entire model 
+Z4	5.00d-001	0.50000E+00	iteration limiter, nonmuscle oxygen 
+Z5	3.00d-001	0.30000E+00	iteration limiter, muscle oxygen 
+Z6	2.00d+001	0.20000E+02	damping factor for muscle venous saturation 
+Z7	5.00d+000	0.50000E+01	damping factor for nonmuscle venous saturation 
+Z10	4.50d+001	0.45000E+02	damping factor, sth 
+Z11	1.00d-002	0.10000E-01	damping factor, sth 
+Z12	5.00d+000	0.50000E+01	damping factor, angiotensin system 
+Z13	6.25d-001	0.62500E+00	exponent controlling degree of heart hypertrophy 
+Z14	5.00d+000	0.50000E+01	damping factor for anp concentration 
+Z16	5.00d+000	0.50000E+01	damping factor for adh concentration 
+Z18	5.00d+000	0.50000E+01	damping factor for ppd 
+Z19	5.00d+000	0.50000E+01	damping factor for dfp      
+
+
+
+#Variables
+
+A1B	9.41d-001	0.97939E+00	arterial baroreceptor drive
+AAR	4.00d+001	0.40496E+02	afferent arteriolar resistance
+ADH	1.00d+000	0.10157E+01	total adh secretion (pressure, sodium, infusion)
+ADHC	1.00d+000	0.10157E+01	adh concentration, ratio to normal
+ADHMK	1.00d+000	0.10105E+01	effect of adh on sodium and water reabsorption
+ADHMV	1.00d+000	0.10010E+01	effect of adh on nonrenal vascular resistance
+ADHNA	1.00d+000	0.10157E+01	effect of plasma sodium on adh secretion
+ADHPA	8.50d+001	0.85000E+02	effect of arterial pressure on adh secretion
+ADHPR	0.00d+000	0.00000E+00	arterial pressure effect on adh secretion
+ADHZ	-1.56d+000	-0.15640E+01	internal variable (C-version only)
+AH7	-1.95d-002	-0.11096E-01	volume receptor output
+AHY	3.02d-001	-0.60930E+00	adapted effect, volume receptor output
+AHZ	2.05d-001	-0.62040E+00	basic effect, on volume receptor output
+ALVENT	6.00d+000	0.59172E+01	alveolar ventilation
+AM	1.07d+000	0.10757E+01	general aldosterone multiplier, ratio to normal
+AM1	1.00d+000	0.10303E+01	rate of aldosterone secretion
+AMC	1.00d+000	0.10587E+01	aldosterone concentration, ratio to normal
+AMK	1.04d+000	0.10378E+01	effect of aldosterone on cell membrane potassium transport
+AMK1	1.00d+000	0.10114E+01	effect of aldosterone on cell membrane potassium transport
+AMM	1.00d+000	0.56866E+00	overall multiplier factor for muscle autoregulation
+AMM1	1.00d+000	0.99156E+00	multiplier for rapid muscle autoregulation
+AMM2	1.09d+000	0.57350E+00	multiplier for long-term muscle autoregulation
+AMNA	1.00d+000	0.10605E+01	aldosterone effect on tubular na reasorption
+AMR	1.06d+000	0.10591E+01	aldosterone secretion, ratio to normal conc.
+AMR1	1.06d+000	0.10591E+01	total aldosterone secretion (endo + exo)
+AMRBSC	1.00d+000	0.10049E+01	basal aldo secretion due to angiotensin and potassium
+ANC	1.00d+000	0.87831E+00	was 8.59d-001 in turboc, plasma angiotensin concentration
+ANGSCR	1.00d+000	0.87886E+00	angiotensin secretion due to macula densa flow
+ANM	9.88d-001	0.98924E+00	general angiotensin multiplier effect, ratio to normal
+ANMAR	9.83d-001	0.98493E+00	angiotension multiplier on afferent arterioles
+ANMER	9.80d-001	0.98278E+00	angiotension multiplier on efferent arterioles
+ANMKE	9.75d-001	0.97847E+00	angiotensin effect on renal potassium reabsorption
+ANP	1.00d+000	0.83069E+00	rate of endogenous anp secretion
+ANP1	1.00d+000	0.83069E+00	total rate of anp secretion (endo + exo)
+ANPC	1.00d+000	0.84263E+00	plasma anp concentration
+ANPL	1.00d+000	0.96895E+00	?? (from fortran circ92.dat)
+ANPR	1.00d+000	0.87886E+00	rate of endogenous angiotensin secretion
+ANPR1	1.00d+000	0.87886E+00	total rate of angiotensin secretion (endo + exo)
+ANPR2	2.00d+000	0.15231E+01	?? (from fortran circ92.dat)
+ANPX	1.00d+000	0.23134E+00	anp multiplier, ratio to normal
+ANU	9.25d-001	0.93542E+00	angiotensin effect on arterial resist + venous volume
+ANUVN	1.00d+000	0.10000E+01	effect of angiotensin on systemic veins
+ANX	0.00d+000	0.00000E+00	angiotensin secretion
+ANX1	0.00d+000	0.00000E+00	actual anx after damping
+AOM	1.00d+000	0.10000E+01	autonomic effect on tissue oxygen utilization
+APD	4.79d+001	0.49345E+02	pressure drop in afferent arterioles
+AR1	1.02d+000	0.10042E+01	multiplier for rapid non-muscle autoregulation
+AR2	1.01d+000	0.10043E+01	multiplier for intermediate non-muscle autoregulation
+AR3	1.14d+000	0.10797E+01	multiplier for long-term non-muscle autoregulation
+ARM	1.16d+000	0.10800E+01	non-muscle global autoregulation multiplier
+ATRRFB	1.00d+000	0.10000E+01	volume receptor feedback on arterial resistance
+ATRVFB	0.00d+000	0.00000E+00	volume receptor feedback on unstressed venous volume
+AU	1.00d+000	0.10000E+01	overall activity of autonomic system
+AU1	1.00d+000	0.10000E+01	integral of dau
+AU2	1.32d-003	0.28254E-02	internal variable, baroreceptor adaptation
+AU4	-6.00d-002	-0.23416E-01	long-term baroreceptor adaptation output
+AU6	1.00d+000	0.10028E+01	baroreceptor output
+AU8	5.26d-006	0.11302E-04	rate of change of baroreceptor output, adapted
+AUB	9.41d-001	0.97939E+00	arterial baroreceptor drive, before damping-adaptation
+AUC	0.00d+000	0.00000E+00	effect of chemoreceptors on autonomic stimulation
+AUC2	0.00d+000	0.00000E+00	autonomic drive due to hypoxemia (for auttl)
+AUH	1.00d+000	0.10000E+01	autonomic effect on heart strength, ratio to normal
+AULP	1.00d+000	0.10000E+01	autonomic drive due to low pressure receptors
+AUM	1.00d+000	0.10000E+01	sympathetic vasoconstrictor effect on arteries
+AUMK	1.00d+000	0.10000E+01	autonomic multiplier factor on renal vessels
+AUN	0.00d+000	0.00000E+00	effect of cns ischemic reflex on autoregulation
+AUO	2.20d-004	0.15997E-05	delta of overall activity of autonomic system
+AUR	1.30d+000	0.10000E+01	autonomic stimulation of heart rate
+AUTTL	1.00d+000	0.10000E+01	internal variable, overall autonomic output 
+AVE	1.00d+000	0.10000E+01	autonomic effect on venous resistance
+BFM	9.90d-001	0.97084E+00	muscle blood flow
+BFN	2.80d+000	0.27700E+01	nonmuscle nonrenal blood flow
+CCD	-2.01d-003	-0.16718E-04	electrolyte gradient across cell membrane
+CHY	1.00d+000	0.10049E+01	hyaluronic acid conc. in tissue fluids
+CKE	4.44d+000	0.44361E+01	extracellular potassium concentration
+CKI	1.42d+002	0.14205E+03	intracellular potassium concentration
+CN3	3.60d-001	0.35996E+00	venous stretch component due to capillary pressure
+CNA	1.42d+002	0.14205E+03	extracellular sodium concentration
+CPA	6.38d-001	0.65532E+00	pulmonary artery pressure effect on pulm. resistance
+CPI	2.34d+001	0.23441E+02	free interstitial fluid protein conc.
+CPN	3.41d+001	0.30283E+02	protein conc. in pulmonary fluids
+CPP	7.20d+001	0.71968E+02	plasma protein concentration
+CPPD	3.20d+001	0.31968E+02	error signal for liver protein destruction
+DAS	-1.28d-002	-0.15314E-02	rate of change of blood volume in the aorta
+DAU	1.26d-003	0.28270E-04	rate of change, autonomic drive
+DFP	-4.08d-007	-0.94955E-06	rate of change in pulmonary free fluid volume
+DFZ	1.60d-006	-0.82401E-06	dfp before damping
+DHM	1.26d+000	0.12508E+01	rate of cardiac deterioration caused by hypoxia
+DLA	3.18d-003	0.20714E-02	rate of change of blood volume in left atrium
+DLP	2.15d-004	0.22539E-03	net rate of liver protein production
+DO2M	-2.96d-001	-0.29588E+00	rate of change of oxygen in muscle tissue
+DO2N	-4.96d-001	-0.49273E+00	rate of change of oxygen in nonmuscle tissue
+DO2VAD	-1.19d-010	-0.41691E-34	change in ventilatory response (due to long tc)
+DOB	1.64d+002	0.16351E+03	rate of oxygen delivery to non-muscle cells
+DOVA	1.67d-001	0.16670E+00	rate of change in arterial o2 content
+DPA	-1.91d-002	0.20313E-02	rate of change in pulmonary blood volume
+DPC	8.54d-002	0.83650E-01	loss of plasma proteins through systemic capillaries
+DPI	-5.72d-004	-0.15690E-02	change of protein in free interstitial fluid
+DPL	8.60d-002	0.84921E-01	rate of systemic lymphatic return of protein
+DPP	7.92d-004	0.17926E-02	rate of change of plasma protein
+DRA	1.29d-002	-0.15123E-02	rate of change of blood volume in right atrium
+DTKA	3.68d-002	0.36765E-01	distal reabsorption of potassium
+DTKI	2.74d-002	0.27294E-01	distal delivery of potassium
+DTKSC	8.83d-002	0.87587E-01	distal secretion of potassium
+DTNAI	8.76d-001	0.87399E+00	distal tubular sodium delivery
+DTNANG	9.88d-002	0.98924E-01	rate of distal na reabsorption due to angiotensin
+DTNARA	7.75d-001	0.68192E+00	rate of distal tubular na reabsorption (non aii)
+DTURI	2.40d-001	0.23984E+00	rate of urinary urea excretion
+DVS	1.58d-002	-0.10590E-02	rate of change of venous volume
+EAR	4.25d+001	0.42587E+02	efferent arteriolar resistance
+EFAFPR	1.21d+000	0.12068E+01	total to efferent renal plasma flow fraction 
+FISFLO	0.00d+000	0.00000E+00	fistula blood flow
+GFR	1.25d-001	0.12498E+00	glomerular filtration rate
+GLP	5.18d+001	0.51893E+02	glomerular pressure
+GLPC	3.78d+001	0.37884E+02	glomerular colloid osmotic pressure
+HM	4.00d+001	0.40201E+02	hematocrit (%)
+HM1	4.00d-001	0.40201E+00	hematocrit
+HM3	1.60d+003	0.16080E+04	erythropoietic effect of po2 (low po2)
+HM4	1.10d+002	0.11000E+03	erythropoietic effect of po2
+HM5	1.71d+003	0.17180E+04	sum of hm3 and hm4
+HM7	1.38d+002	0.13196E+03	final erythropoietic effect of po2
+HMD	1.00d+000	0.10000E+01	cardiac depressant effect of hypoxia
+HPEF	9.91d-001	0.10529E+01	pumping effectiveness of the right heart
+HPL	1.00d+000	0.10032E+01	hypertrophy effect on left ventricle
+HPR	1.00d+000	0.10510E+01	hypertrophy effect on right ventricle
+HR	7.20d+001	0.72000E+02	heart rate (beats/min)
+KE	6.60d+001	0.65896E+02	total extracellular fluid potassium
+KI	3.56d+003	0.35561E+04	total intracellular fluid potassium
+KOD	8.04d-002	0.79628E-01	rate of renal potassium excretion
+KODN	8.04d-002	0.79628E-01	rate of potassium excretion, normal kidneys
+KTOT	3.62d+003	0.36220E+04	total body potassium (intra + extracellular)
+KTOTD	-4.37d-004	0.37230E-03	rate of change of total body potassium
+MDFLK	1.00d+000	0.99902E+00	macula densa flow, potassium component
+MDFLW	1.00d+000	0.99852E+00	normalized tubular flow at macula densa
+MDFLW3	1.00d+000	0.10019E+01	macula densa flow effect on renin release
+MMO	5.71d+001	0.57100E+02	rate of oxygen utilization by muscle cells
+MO2	1.64d+002	0.16400E+03	rate of oxygen utilization by non-muscle cells
+MYOGRS	1.00d+000	0.10000E+01	myogenic autoregulation multiplier
+NAE	2.11d+003	0.21101E+04	total extracellular sodium
+NED	1.77d-003	0.43872E-02	rate of change of extracellular sodium
+NOD	9.59d-002	0.93142E-01	rate of renal excretion of sodium
+NODN	9.59d-002	0.93142E-01	rate of sodium excretion, normal kidneys
+O2DFS	2.22d+002	0.22272E+03	pulmonary o2 diffusion
+O2UTIL	2.21d+002	0.22189E+03	total rate of o2 delivery (muscle & nonmuscle)
+O2VAD1	2.37d-007	0.83294E-31	delayed ventilatory response
+O2VAD2	1.00d+000	0.10000E+01	delayed ventilatory response
+O2VTS2	1.00d+000	0.10000E+01	reciprocal of o2vtst
+O2VTST	1.00d+000	0.10000E+01	acute ventilatory response
+OSA	9.73d-001	0.97281E+00	aortic oxygen saturation
+OSMOPN	5.93d-001	0.58581E+00	urinary osmolar excretion
+OSV	6.94d-001	0.69316E+00	nonmuscle venous oxygen saturation
+OVA	2.04d+002	0.20532E+03	arterial o2 content
+OVS	7.00d-001	0.69538E+00	muscle venous oxygen saturation
+P1O	8.00d+000	0.35000E+02	effective nonmuscle po2 (from pot)
+P2O	3.80d+001	0.37784E+02	effective muscle po2 (from pmo)
+PA	1.04d+002	0.10124E+03	systemic arterial pressure
+PA1	1.04d+002	0.10124E+03	effective arterial pressure driving autonomic system
+PA2	1.01d+002	0.10406E+03	effective arterial pressure driving left ventricle pumping
+PAM	1.07d+000	0.10249E+01	pressure effect on arterial distension, ratio to normal
+PAMK	1.00d+000	0.10000E+01	korner pressure effect on non-renal vessels
+PAMKRN	1.00d+000	0.10000E+01	korner pressure effect on renal vessels
+PAR	1.04d+002	0.10124E+03	renal arterial pressure
+PC	1.69d+001	0.16822E+02	capillary pressure
+PCP	7.03d+000	0.89370E+01	pulmonary capillary pressure
+PDO	6.66d-002	-0.21628E+00	driving po2 for muscle autoregulation
+PFI	2.51d-004	0.30835E-03	transfer of fluid across pulmonary capillaries
+PFL	6.00d+000	0.60086E+01	renal filtration pressure
+PGH	-1.02d+000	-0.10173E+01	hydrostatic pressure in tissue gel
+PGL	1.56d+001	0.14548E+02	pressure gradient in lungs
+PGS	9.98d+001	0.97554E+02	pressure gradient from arteries to veins
+PIF	-3.02d+000	-0.30270E+01	interstitial fluid pressure
+PL1	1.80d+001	0.19969E+02	internal variable, effect of pla on rpv
+PLA	2.00d+000	0.19689E+01	left atrial pressure
+PLA1	2.00d+000	0.19689E+01	effective left atrial press. effect on cardiac output
+PLD	1.45d-001	0.18126E+00	pressure gradient to cause lymphatic flow
+PLF	2.49d-004	0.30917E-03	pulmonary lymphatic flow
+PLUR	1.60d+002	0.15950E+03	total body urea
+PLURC	4.00d+000	0.39985E+01	plasma urea concentration                           
+PMC	6.60d+000	0.90355E+01	mean circulatory filling pressure
+PMO	3.81d+001	0.37784E+02	muscle tissue po2
+PMP	4.30d+000	0.60906E+01	mean pulmonary filling pressure
+PMS	7.00d+000	0.95459E+01	mean systemic filling pressure
+PO2ALV	1.01d+002	0.10072E+03	alveolar po2
+PO2AM1	8.00d+001	0.80000E+02	effective ambiant po2 on hm3
+PO2ART	9.70d+001	0.97008E+02	arterial po2
+POA	1.01d+000	0.10016E+01	vasoconstrictor effect of intermediate autoregulation
+POB	1.01d+000	0.10016E+01	vasoconstrictor effect of rapid autoregulation
+POC	1.23d+000	0.10325E+01	vasoconstrictor effect of long-term autoregulation
+POD	1.15d-001	0.16270E-01	non-muscle po2 (minus normal value)
+POE	1.00d+000	0.99135E+00	driving pressure for rapid muscle autoregulation
+POS	1.36d+001	0.12113E+02	pulmonary interstitial fluid colloid osmotic pressure
+POSHYL	2.01d+000	0.20097E+01	tissue osmotic pressure due to hyaluronic acid
+POT	3.51d+001	0.35016E+02	non-muscle tissue po2
+POV	3.76d+001	0.39607E+02	non-muscle venous po2
+PP1	3.80d-001	0.42945E+00	relates pulm. art pressure to pulm. art resistance
+PP2	1.61d+001	0.16977E+02	effective pulm. artery pressure on right ventr. pumping
+PPA	1.56d+001	0.16517E+02	pulmonary arterial pressure
+PPC	3.00d+001	0.29992E+02	plasma colloid osmotic pressure
+PPD	4.48d-006	0.47219E-05	rate of change of protein in pulmonary fluids
+PPI	-1.02d+001	-0.99694E+01	pulmonary interstitial fluid pressure
+PPN	8.53d-003	0.93791E-02	rate of pulmonary capillary protein loss
+PPO	8.49d-003	0.93626E-02	pulmonary lymph protein flow
+PPR	4.20d-001	0.37951E+00	total protein in pulmonary fluids
+PPZ	4.04d-005	0.16548E-04	ppd before damping
+PR1	8.52d-003	0.00000E+00	outflow pressure from the veins into the chest
+PRA	8.52d-003	-0.23844E+00	right atrial pressure
+PRA1	9.01d-003	-0.23844E+00	effective right atrial pressure
+PRCD	1.91d+000	0.18222E+01	capillary pressure gradient for protein leakage
+PRP	2.16d+002	0.20663E+03	total plasma protein
+PTC	1.23d+001	0.12369E+02	total osmotic pressure of tissue gel
+PTCPR	7.58d+000	0.76074E+01	interstitial fluid colloid osmotic pressure (protein)
+PTS	4.02d+000	0.40187E+01	interstitial solid tissue pressure
+PTT	9.92d-001	0.99171E+00	total tissue pressure
+PVO	4.00d+001	0.39734E+02	muscle venous po2
+PVS	3.72d+000	0.36841E+01	average pressure in major veins
+QAO	5.01d+000	0.49607E+01	aortic blood flow
+QLN	5.03d+000	0.50050E+01	basic left ventricular output
+QLO	4.99d+000	0.49592E+01	left ventricular output
+QLO1	0.00d+000	-0.33090E+02	passive left ventricular output
+QO2	7.22d+001	0.72034E+02	quantity of o2 in nonmuscle tissue
+QOM	4.81d+001	0.47707E+02	quantity of o2 in muscle tissue
+QPO	5.00d+000	0.49613E+01	blood flow into pulmonary veins and left atrium
+QRN	5.02d+000	0.47139E+01	basic right ventricular output
+QRO	4.98d+000	0.49633E+01	actual right ventricular output
+QVO	4.99d+000	0.49618E+01	rate of blood flow from veins into right atrium
+R1	8.65d-001	0.91745E+00	composite multiplier for non-renal resistance
+RABSPR	2.04d+000	0.16640E+01	starling pressure gradient for proximal reabsorption
+RAD	1.00d+000	0.10000E+01	$$ rad, myogenic autoregulation
+RBF	1.22d+000	0.12185E+01	renal blood flow
+RC1	1.15d-005	0.11215E-04	rate of red cell production
+RC2	1.16d-005	0.11240E-04	rate of red cell destruction
+RCD	-1.16d-007	-0.24274E-07	rate of change of red cell mass
+RCPRS	2.33d+001	0.23324E+02	renal peritubular capillary pressure
+RFAB	8.34d-001	0.83201E+00	rfab1 after damping
+RFAB1	8.34d-001	0.83201E+00	renal peritubular capillary reabsorption
+RFABK	-1.49d-003	-0.15119E-02	effect of physical forces on potassium reabsorption
+RFN	1.22d+000	0.12185E+01	renal blood flow, undamaged kidney
+RMO	5.68d+001	0.56804E+02	rate of o2 delivery to muscle tissues
+RMULT1	1.00d+000	0.10000E+01	very rapid autoregulation multiplier (if auto >
+RNAUG1	1.00d+000	0.99863E+00	autoregulatory feedback multiplier on aar
+RNAUG2	1.00d+000	0.99863E+00	total autoregulatory feedback multiplier on aar
+RNAUG3	0.00d+000	0.00000E+00	autoregulatory feedback on aar due to adaptation
+RPA	1.57d+000	0.15260E+01	pulmonary arterial resistance
+RPT	3.13d+000	0.29287E+01	total pulmonary vascular resistance
+RPV	1.56d+000	0.14027E+01	pulmonary venous resistance
+RR	8.48d+001	0.83083E+02	total renal resistance
+RSM	1.01d+002	0.10048E+03	vascular resistance through muscle tissues
+RSN	3.57d+001	0.35217E+02	vascular resistance through non-muscle tissues (non-renal)
+RSPDFC	6.04d+001	0.59936E+02	respiratory o2 diffusion coefficient
+RTP	2.07d+001	0.20456E+02	total peripheral resistance
+RTSPPC	1.89d+001	0.18896E+02	renal tissue fluid oncotic pressure
+RV1	2.78d+000	0.27781E+01	multiplier effect of vascular stretch on venous resistance
+RVG	7.37d-001	0.74317E+00	resistance from veins to right atrium
+RVM	9.88d-001	0.10123E+01	pulmonary pressure load on right ventricle
+RVS	2.78d+000	0.27899E+01	resistance to blood flow through the veins
+STH	9.77d-001	0.97529E+00	effect of hypoxia + angiotensin on salt and water intake
+SVO	6.94d-002	0.68878E-01	stroke volume output
+SYSFLO	5.01d+000	0.49607E+01	systemic blood flow
+TSP	2.80d+002	0.28061E+03	total interstitial tissue protein
+TVD	9.81d-004	0.98480E-03	rate of drinking
+UROD	2.40d-001	0.23984E+00	rate of urinary urea excretion
+VAE	3.68d-001	0.15692E+00	excess volume in the arterial tree
+VAS	8.63d-001	0.65192E+00	volume in systemic arteries
+VB	5.01d+000	0.47976E+01	blood volume
+VBD	-1.85d-003	-0.25692E-02	change in blood volume distributed in the circulation
+VEC	1.49d+001	0.14855E+02	extracellular fluid volume
+VIB	3.00d+000	0.30146E+01	blood viscosity, ratio to that of water
+VIC	2.50d+001	0.25035E+02	intracellular fluid volume
+VID	-2.01d-005	-0.16718E-06	rate of fluid transfer across cell membrane
+VIE	1.50d+000	0.15146E+01	portion of blood viscosity caused by red blood cells
+VIF	5.99d-001	0.59854E+00	volume of free interstitial fluid
+VIM	1.00d+000	0.10048E+01	blood viscosity effect on resistance, ratio to normal
+VLA	3.80d-001	0.39969E+00	volume of left atrium
+VLE	2.00d-002	0.19689E-01	excess blood volume in left atrium
+VP	3.00d+000	0.28711E+01	plasma volume
+VPA	3.81d-001	0.38553E+00	volume in pulmonary arteries
+VPD	5.94d-004	0.10317E-02	rate of change in plasma volume
+VPE	7.51d-002	0.79283E-01	excess blood volume in pulmonary tree
+VPF	1.23d-002	0.12530E-01	pulmonary free fluid volume
+VRA	1.00d-001	0.98808E-01	volume of right atrium
+VRC	2.00d+000	0.19287E+01	volume of red blood cells
+VRE	4.26d-005	-0.11922E-02	volume of right atrium in excess
+VTC	3.09d-003	0.25921E-02	rate of fluid transfer across systemic capillaries
+VTCPL	4.84d-004	0.46101E-03	rate of plasma leakage across systemic capillaries
+VTL	3.68d-003	0.36251E-02	rate of systemic lymph flow
+VTS	1.18d+001	0.11971E+02	systemic interstitial fluid volume
+VTS1	1.20d+001	0.11975E+02	vts after damping
+VTS2	0.00d+000	-0.41939E-02	vts component due to interst. stress relaxation
+VTW	3.99d+001	0.39889E+02	total body water
+VUD	9.89d-004	0.96624E-03	actual rate of urinary output
+VUDN	9.81d-004	0.96624E-03	rate of urinary output, normal kidneys
+VV6	1.02d-002	-0.28235E-03	vascular volume caused by long-term stress relaxation
+VV7	3.67d-003	-0.37111E-03	vascular volume caused by short-term stress relaxation
+VVE	7.43d-001	0.73921E+00	excess volume of blood in the veins
+VVR	2.51d+000	0.25100E+01	basic venous volume (all other factors=normal)
+VVS	3.28d+000	0.32617E+01	actual venous vascular volume
+
+
+
+#Other Variables
+
+AGK	4.00d+000	0.40000E+01	?? (from fortran circ92.dat)
+AHK	1.50d+001	0.15000E+02	?? (from fortran circ92.dat)
+AHTH	1.00d-003	0.10060E-02	thirst drive, function of adh and salt appetite
+AMM3	1.00d+000	0.99158E+00	previous value of amm1
+ANMSML	1.00d+000	0.97847E+00	angiotensin effect on salt intake
+ANMTH	-1.87d-005	-0.16145E-04	angiotensin effect on thirst drive
+ANPINF	0.00d+000	0.00000E+00	rate of exogenous anp infusion
+ANPKNS	0.00d+000	0.00000E+00	overriding value of anp secretion rate
+AR4	1.02d+000	0.10042E+01	previous value of ar1
+AR5	1.00d+000	0.10044E+01	previous value of ar2
+ATRFBM	0.00d+000	0.00000E+00	sensitivity controller of atrrfb
+ATRVM	0.00d+000	0.00000E+00	sensitivity controller of atrvfb
+AU6A	1.00d+000	0.10028E+01	internal variable, au6 computation
+AU6B	1.00d+000	0.99580E+00	internal variable, au6 computation
+AU6C	1.00d+000	0.10028E+01	au6 after damping
+AURG	1.00d+000	0.10000E+01	to suppress autoregulation (if ==
+AUTO	0.00d+000	0.00000E+00	activates automatic rapid autoregulation (if >
+AUY	0.00d+000	0.00000E+00	sensitivity of sympathetic control of veins
+CRRFLX	0.00d+000	0.00000E+00	overriding value of pa1 (if >
+GBL	0.00d+000	0.00000E+00	goldblatt pressure clamp (mmhg)
+GFN	1.25d-001	0.12498E+00	glomerular filtration rate of undamaged kidney
+GLPCA	1.00d+000	0.10000E+01	if >
+HKM	5.33d-001	0.53300E+00	blood viscosity factor caused by red blood cells
+I	time incrementation step 	3.00d-003	
+I1	5.00d+000	0.32435E+01	iteration interval limiter (fixed by change in vpd)
+I11	0.00d+000	0.00000E+00	cumulative i10
+I13	0.00d+000	0.00000E+00	cumulative i12
+I15	0.00d+000	0.00000E+00	cumulative i14
+I17	0.00d+000	0.00000E+00	cumulative i16
+I19	0.00d+000	0.00000E+00	cumulative i18
+I21	0.00d+000	0.00000E+00	cumulative i20
+I5	0.00d+000	0.00000E+00	cumulative i2 and i4
+I9	0.00d+000	0.00000E+00	cumulative i8
+KORNER	0.00d+000	0.00000E+00	activates korner's concept (if >
+KORREN	0.00d+000	0.00000E+00	korner effect also on afferent arterioles (if >
+LVM	9.91d-001	0.98772E+00	aortic pressure load effect on left ventricular output
+MDFLW1	9.98d-001	0.99862E+00	mdflw previous loop
+OSMOP1	0.00d+000	0.00000E+00	effect of excess urinary osmotic substances
+PA3	1.04d+002	0.10166E+03	internal variable, previous value of pa
+PCD	3.00d-001	0.30000E+00	net pressure gradient across capillary membrane
+PGP	4.12d+000	0.41200E+01	tissue gel colloid osmotic pressure
+PGV	3.71d+000	0.36841E+01	pressure gradient through the venous system
+PO2AMB	1.50d+002	0.15000E+03	ambiant po2
+PO2AR1	0.00d+000	0.97007E+02	po2art previous loop
+PTFL	1.00d+000	0.99985E+00	proximal tubule outflow, ratio to normal
+RAM	19.26d+001	0.19260E+03	basal muscle vascular resistance [P]
+RFABD	9.50d-001	0.94960E+00	?
+RFABX	8.00d-001	0.80000E+00	?
+RFCDFT	0.00d+000	0.00000E+00	renal function curve drift factor (if >
+RMULT	1.00d+000	0.10000E+01	very rapid autoregulation multiplier (if auto >
+RNAULL	3.00d-001	0.30000E+00	rnaug1 lower limit
+RNAUUL	1.00d+001	0.10000E+02	rnaug1 upper limit
+RPS	0.00d+000	0.00000E+00	doubles extrarenal resistance (if >
+T	time	0.00d+000	
+TENS	1.00d+000	0.10000E+01	$$ vessel tension
+TENS1	1.00d+000	0.10000E+01	vessel tension due to pressure
+TENS2	1.00d+000	0.10000E+01	$$ vessel tension
+TRNSTM	0.00d+000	0.00000E+00	internal timer, transfusion time
+TRRBC	0.00d+000	0.00000E+00	rate of transfusion of pure rbc
+TVZ	9.80d-004	0.98981E-03	thirst drive due to angiotensin, adh,
+VG	1.14d+001	0.11372E+02	volume of interstitial fluid gel
+VUD1	1.00d-003	0.10047E-02	internal variable, renal iteration
+VUD2	1.00d-004	0.10000E-03	maximal deviation in vud (renal iteration)
