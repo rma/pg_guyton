@@ -3,7 +3,7 @@
 """This script exports simulation results into comma-separated form, suitable
 for importing into R.
 
-   USAGE: convert_for_R.py [-o file] results_file
+   USAGE: convert_for_R.py [-o file -t n] results_file
 
    ARGUMENTS
        results_file:  A file containing the simulation results.
@@ -15,6 +15,10 @@ for importing into R.
        -o FILE, --output=FILE
            Write the output to FILE (default is 'results.csv').
 
+       -t N, --time=N
+           Output the state at the Nth time interval, where 1 <= N <= 5.
+           The default is N = 5 (ie, the steady-state).
+
 """
 
 import csv
@@ -25,7 +29,7 @@ from import_parser import par_list, par_of_interest, var_list, var_of_interest, 
 
 def convert(settings, params, del_param, del_incr, pre_del, post_dels, count):
     """Converts the results of a simulation into comma-separated form."""
-    (writer, p_interest, v_interest) = settings
+    (writer, p_interest, v_interest, nth_time) = settings
 
     # Save the original steady-state
     params = params[0:p_interest]
@@ -34,7 +38,7 @@ def convert(settings, params, del_param, del_incr, pre_del, post_dels, count):
 
     # Save the post-delta steady-state
     params[del_param] += del_incr
-    delta_output = post_dels[-1][0:v_interest]
+    delta_output = post_dels[nth_time][0:v_interest]
     writer.writerow(params + delta_output)
 
 class Usage(Exception):
@@ -50,14 +54,16 @@ def main(argv=None):
         argv = sys.argv
     try:
         try:
-            o_short = "o:h"
-            o_long = ["output=", "help"]
+            o_short = "o:t:h"
+            o_long = ["output=", "time=", "help"]
             opts, args = getopt.getopt(argv[1:], o_short, o_long)
         except getopt.error, msg:
              raise Usage(msg)
 
         # The default output file.
         out_file = 'results.csv'
+        # Which snapshot to record.
+        nth_time = 4
 
         for o, a in opts:
             if o in ("-h", "--help"):
@@ -65,8 +71,10 @@ def main(argv=None):
                 return 2
             elif o in ("-o", "--output"):
                 out_file = a
+            elif o in ("-t", "--time"):
+                nth_time = int(a) - 1
 
-        if len(args) != 1:
+        if len(args) != 1 or nth_time < 0 or nth_time > 4:
             print __doc__
             return 2
 
@@ -82,7 +90,7 @@ def main(argv=None):
             writer = csv.writer(output, delimiter=',')
             writer.writerow(p_names + v_names)
 
-            settings = (writer, p_interest, v_interest)
+            settings = (writer, p_interest, v_interest, nth_time)
             with open(args[0]) as results:
                 count = parse(results, convert, settings, warn=True)
 
