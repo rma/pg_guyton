@@ -546,7 +546,7 @@ AU6A	1.00d+000	0.10028E+01	internal variable, au6 computation
 AU6B	1.00d+000	0.99580E+00	internal variable, au6 computation
 AU6C	1.00d+000	0.10028E+01	au6 after damping
 AURG	1.00d+000	0.10000E+01	to suppress autoregulation (if ==
-AUTO	0.00d+000	0.00000E+00	activates automatic rapid autoregulation (if >
+AUTOC	0.00d+000	0.00000E+00	activates automatic rapid autoregulation (if >
 AUY	0.00d+000	0.00000E+00	sensitivity of sympathetic control of veins
 CRRFLX	0.00d+000	0.00000E+00	overriding value of pa1 (if >
 GBL	0.00d+000	0.00000E+00	goldblatt pressure clamp (mmhg)
