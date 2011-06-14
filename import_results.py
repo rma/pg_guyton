@@ -80,7 +80,13 @@ def save_params(cursor, expID, p_init, param_IDs):
             "(experiment, parameter, at_time, value, of_interest) "
             "VALUES (%s, %s, %s, %s, %s)")
 
-    p_list = zip(p_init, par_list())
+    params = par_list()
+
+    if len(p_init) != len(params):
+        err_msg = "ERROR: zipping param lists of length %d and %d"
+        print >> sys.stderr, (err_msg % (len(p_init), len(params)))
+
+    p_list = zip(p_init, params)
     data_fn = lambda (v,n): (expID, param_IDs[n], 0, v, par_of_interest(n))
     data = map(data_fn, p_list)
 
@@ -128,7 +134,13 @@ def save_state(cursor, expID, state, why_now, var_IDs):
             "(experiment, variable, at_time, value, why_now, of_interest) "
             "VALUES (%s, %s, %s, %s, %s, %s)")
 
-    v_list = zip(values, var_list())
+    vars = var_list()
+
+    if len(values) != len(vars):
+        err_msg = "ERROR: zipping variable lists of length %d and %d"
+        print >> sys.stderr, (err_msg % (len(values), len(vars)))
+
+    v_list = zip(values, vars)
     data_fn = lambda (v,n): (expID, var_IDs[n], time, v, why_now,
                              var_of_interest(n))
     data = map(data_fn, v_list)
