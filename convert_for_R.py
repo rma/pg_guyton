@@ -25,7 +25,7 @@ import csv
 import getopt
 import sys
 
-from import_parser import par_list, par_of_interest, var_list, var_of_interest, parse
+from import_parser import par_list, par_of_interest, var_list, var_of_interest, parse, delta_index
 
 def convert(settings, params, del_param, del_incr, pre_del, post_dels, count):
     """Converts the results of a simulation into comma-separated form."""
@@ -37,7 +37,8 @@ def convert(settings, params, del_param, del_incr, pre_del, post_dels, count):
     writer.writerow(params + output)
 
     # Save the post-delta steady-state
-    params[del_param] += del_incr
+    del_idx = delta_index(del_param)
+    params[del_idx] += del_incr
     delta_output = post_dels[nth_time][0:v_interest]
     writer.writerow(params + delta_output)
 

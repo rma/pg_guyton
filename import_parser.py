@@ -38,7 +38,7 @@ delta_list = ("a1k, a2k, a3k, a4k, a4k2, aark, adhpam, adhtc, ah11, ah9, "
 "ahmnar, ahthm, alclk, aldmm, amcsns, amkm, amkmul, amnam, amt, ancsns, "
 "anmald, anmam, anmem, anmkem, anmnam, anmslt, anmtm, anptc, anpxaf, ant, "
 "anum, anv, any, auc1, auk, aumk1, aun1, aus, autok, autosn, auv, aux, "
-"barotc, cfc, cnr, cpf,cpr, cv, dhdtr, diuret, dtnar, eark, gflc,hm6, hm8, "
+"barotc, cfc, cnr, cpf, cpr, cv, dhdtr, diuret, dtnar, eark, gflc, hm6, hm8, "
 "hsl, hsr, htauml, hyl, kid, korgn, kortc, lppr, mdflkm, mdflwx, nid, o2a, "
 "o2chmo, o2m, omm, pcr, pm5, por, qrf, rabsc, rfabdm, rfabkm, rnagtc, rnaugn, "
 "rtppr, rtpprs, rtsprs, rvsm, sr, sr2, srk, srk2, tenstc, tsslml, tssltc, "
@@ -211,6 +211,13 @@ def par(n):
 def delta(n):
     """Returns the name of the nth delta parameter."""
     return delta_list[n]
+
+def delta_index(n):
+    """Returns the index of the delta parameter."""
+    #print "delta_index", n
+    #print "    =", delta_list[n]
+    #print "    =", parameter_list.index(delta_list[n])
+    return parameter_list.index(delta_list[n])
 
 def var_list():
     """Returns the list of variable names."""
