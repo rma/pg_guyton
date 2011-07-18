@@ -208,7 +208,7 @@ def par(n):
     """Returns the name of the nth parameter."""
     return parameter_list[n]
 
-def del(n):
+def delta(n):
     """Returns the name of the nth delta parameter."""
     return delta_list[n]
 
