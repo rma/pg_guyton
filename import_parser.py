@@ -34,6 +34,18 @@ parameter_list = ("a1k, a2k, a3k, a4k, a4k2, aark, adhpam, adhtc, ah10, ah11, "
 """The list of parameter names, in the order that they are listed in the
 simulation results."""
 
+delta_list = ("a1k, a2k, a3k, a4k, a4k2, aark, adhpam, adhtc, ah11, ah9, "
+"ahmnar, ahthm, alclk, aldmm, amcsns, amkm, amkmul, amnam, amt, ancsns, "
+"anmald, anmam, anmem, anmkem, anmnam, anmslt, anmtm, anptc, anpxaf, ant, "
+"anum, anv, any, auc1, auk, aumk1, aun1, aus, autok, autosn, auv, aux, "
+"barotc, cfc, cnr, cpf,cpr, cv, dhdtr, diuret, dtnar, eark, gflc,hm6, hm8, "
+"hsl, hsr, htauml, hyl, kid, korgn, kortc, lppr, mdflkm, mdflwx, nid, o2a, "
+"o2chmo, o2m, omm, pcr, pm5, por, qrf, rabsc, rfabdm, rfabkm, rnagtc, rnaugn, "
+"rtppr, rtpprs, rtsprs, rvsm, sr, sr2, srk, srk2, tenstc, tsslml, tssltc, "
+"tvddl, u, vidml, vntstm, vptiss, vv9").upper().split(", ")
+"""The list of delta parameter names, in the order that they are listed in the
+simulation results."""
+
 variable_list = ("i, t, au4, au2, au8, amk, amna, amrbsc, amr, amr1, am1, am, "
 "amc, anu, anuvn, anm, mdflw3, angscr, anx, anx1, anpr, anpr1, anc, anpx, "
 "anpl, anpr2, anp, anp1, anpc, adhc, adhmk, adhmv, adhna, adhpa, adhpr, adh, "
@@ -196,6 +208,10 @@ def par(n):
     """Returns the name of the nth parameter."""
     return parameter_list[n]
 
+def del(n):
+    """Returns the name of the nth delta parameter."""
+    return delta_list[n]
+
 def var_list():
     """Returns the list of variable names."""
     return variable_list
@@ -203,6 +219,10 @@ def var_list():
 def par_list():
     """Returns the list of parameter names."""
     return parameter_list
+
+def del_list():
+    """Returns the list of delta parameter names."""
+    return delta_list
 
 def var_of_interest(name):
     """Returns true if the variable of the given name is interesting."""

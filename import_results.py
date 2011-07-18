@@ -32,7 +32,8 @@ import pwd
 import subprocess
 import sys
 
-from import_parser import par_list, par_of_interest, var_list, var_of_interest, parse
+from import_parser import par_list, par_of_interest, var_list, var_of_interest,
+                          del_list, parse
 
 DEBUG = False
 """When set to True, a dry-run is performed where SQL queries are printed, but
@@ -94,7 +95,8 @@ def save_params(cursor, expID, p_init, param_IDs):
 
 def save_delta(cursor, expID, delta_param, delta_incr, param_IDs):
     """Records the delta perturbation for a simulation."""
-    paramID = param_IDs[par_list()[delta_param]]
+    pname = del_list()[delta_param]
+    paramID = param_IDs[pname]
     # the delta perturbation is applied after four weeks
     at_time = 60 * 24 * 7
 
@@ -108,7 +110,6 @@ def save_delta(cursor, expID, delta_param, delta_incr, param_IDs):
         return
     else:
         new_val = delta_incr + matches[0][0]
-        pname = par_list()[delta_param]
 
     stmt = ("INSERT INTO param_value "
             "(experiment, parameter, at_time, value, of_interest) "
