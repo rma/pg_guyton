@@ -32,8 +32,8 @@ import pwd
 import subprocess
 import sys
 
-from import_parser import par_list, par_of_interest, var_list, var_of_interest,
-                          del_list, parse
+from import_parser import par_list, par_of_interest, var_list, \
+                          var_of_interest, del_list, parse
 
 DEBUG = False
 """When set to True, a dry-run is performed where SQL queries are printed, but
@@ -93,12 +93,12 @@ def save_params(cursor, expID, p_init, param_IDs):
 
     do_stmt(cursor, stmt, data)
 
-def save_delta(cursor, expID, delta_param, delta_incr, param_IDs):
+def save_delta(cursor, expID, delta_param, delta_incr, at_time, param_IDs):
     """Records the delta perturbation for a simulation."""
     pname = del_list()[delta_param]
     paramID = param_IDs[pname]
     # the delta perturbation is applied after four weeks
-    at_time = 60 * 24 * 7
+    # at_time = 60 * 24 * 7 * 4
 
     stmt = ("SELECT value FROM param_value "
             "WHERE experiment = %s AND parameter = %s AND at_time = %s ")
@@ -166,7 +166,8 @@ def import_result(settings, init_params, delta_param, delta_incr, pre_delta,
     # Save the initial parameter values
     save_params(cursor, expID, init_params, param_IDs)
     # Save the delta
-    save_delta(cursor, expID, delta_param, delta_incr, param_IDs)
+    delta_time = post_deltas[0][0]
+    save_delta(cursor, expID, delta_param, delta_incr, delta_time, param_IDs)
     # Save the state history
     why_now = 1
     for state in [pre_delta] + post_deltas:
