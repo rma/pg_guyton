@@ -22,8 +22,7 @@ The owner of the database should create an account (a `role`) in PostgreSQL.
 The name of the role should correspond to the user name of the owner's account
 on the host computer. In the following example, the role `rma` is created:
 
-    # su postgres
-    # psql template1
+    # sudo -u postgres psql
     template1=> CREATE ROLE rma WITH CREATEDB CREATEROLE LOGIN;
     template1=> \q
 
