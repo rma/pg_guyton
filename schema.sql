@@ -123,7 +123,8 @@ CREATE TABLE param_value (
   at_time double precision NOT NULL,
   value double precision NOT NULL,
   of_interest boolean NOT NULL,
-  PRIMARY KEY (experiment, parameter, at_time)
+  PRIMARY KEY (experiment, parameter, at_time),
+  UNIQUE (id)
 );
 
 -- In each simulation the values of the output variables are recorded at any
@@ -139,5 +140,27 @@ CREATE TABLE var_value (
   value double precision NOT NULL,
   why_now integer REFERENCES time_detail ON DELETE CASCADE ON UPDATE CASCADE,
   of_interest boolean NOT NULL,
-  PRIMARY KEY (experiment, variable, at_time)
+  PRIMARY KEY (experiment, variable, at_time),
+  UNIQUE (id)
+);
+
+CREATE TABLE individual (
+  id SERIAL,
+  experiment integer REFERENCES experiment ON DELETE CASCADE ON UPDATE CASCADE,
+  perturbed boolean NOT NULL,
+  PRIMARY KEY (id)
+);
+
+CREATE TABLE indiv_param (
+  id BIGSERIAL, -- Django doesn't support multiple-field primary keys.
+  individual integer REFERENCES individual ON DELETE CASCADE ON UPDATE CASCADE,
+  value bigint REFERENCES param_value (id) ON DELETE CASCADE ON UPDATE CASCADE,
+  PRIMARY KEY (id)
+);
+
+CREATE TABLE indiv_var (
+  id BIGSERIAL, -- Django doesn't support multiple-field primary keys.
+  individual integer REFERENCES individual ON DELETE CASCADE ON UPDATE CASCADE,
+  value bigint REFERENCES var_value (id) ON DELETE CASCADE ON UPDATE CASCADE,
+  PRIMARY KEY (id)
 );

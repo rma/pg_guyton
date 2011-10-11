@@ -75,11 +75,18 @@ def create_experiment(cursor, model_ID):
 
     return do_stmt(cursor, stmt, data, retval=True)[0][0]
 
-def save_params(cursor, expID, p_init, param_IDs):
+def create_individual(cursor, expID, perturbed):
+    stmt = ("INSERT INTO individual (experiment, perturbed) "
+            "VALUES (%s, %s) RETURNING id")
+    data = (expID, perturbed)
+
+    return do_stmt(cursor, stmt, data, retval=True)[0][0]
+
+def save_params(cursor, expID, p_init, param_IDs, pre_ID, post_ID, delta_param):
     """Records the initial parameters for a simulation."""
     stmt = ("INSERT INTO param_value "
             "(experiment, parameter, at_time, value, of_interest) "
-            "VALUES (%s, %s, %s, %s, %s)")
+            "VALUES (%s, %s, %s, %s, %s) RETURNING id, parameter")
 
     params = par_list()
 
@@ -91,7 +98,16 @@ def save_params(cursor, expID, p_init, param_IDs):
     data_fn = lambda (v,n): (expID, param_IDs[n], 0, v, par_of_interest(n))
     data = map(data_fn, p_list)
 
-    do_stmt(cursor, stmt, data)
+    d_name = del_list()[delta_param]
+    d_id = param_IDs[d_name]
+
+    p_stmt = "INSERT INTO indiv_param (individual, value) VALUES (%s, %s)"
+    for row in data:
+        (value_id, param_id) = do_stmt(cursor, stmt, row, retval=True)[0]
+        #print str(value_id) + " ... " + str(param_id)
+        do_stmt(cursor, p_stmt, (pre_ID, value_id))
+        if param_id != d_id:
+            do_stmt(cursor, p_stmt, (post_ID, value_id))
 
 def save_delta(cursor, expID, delta_param, delta_incr, at_time, param_IDs):
     """Records the delta perturbation for a simulation."""
@@ -113,13 +129,13 @@ def save_delta(cursor, expID, delta_param, delta_incr, at_time, param_IDs):
 
     stmt = ("INSERT INTO param_value "
             "(experiment, parameter, at_time, value, of_interest) "
-            "VALUES (%s, %s, %s, %s, %s)")
+            "VALUES (%s, %s, %s, %s, %s) RETURNING id")
     of_interest = par_of_interest(pname)
     data = (expID, paramID, at_time, new_val, of_interest)
 
-    do_stmt(cursor, stmt, data)
+    return do_stmt(cursor, stmt, data, retval=True)[0][0]
 
-def save_state(cursor, expID, state, why_now, var_IDs):
+def save_state(cursor, expID, state, why_now, var_IDs, indiv=None):
     """Records a state from the state history of a simulation."""
     time_index = var_list().index("T")
     time = state[time_index]
@@ -131,10 +147,6 @@ def save_state(cursor, expID, state, why_now, var_IDs):
         print >> sys.stderr, "ERROR: non-unique variable IDs"
         return
 
-    stmt = ("INSERT INTO var_value "
-            "(experiment, variable, at_time, value, why_now, of_interest) "
-            "VALUES (%s, %s, %s, %s, %s, %s)")
-
     vars = var_list()
 
     if len(values) != len(vars):
@@ -145,7 +157,22 @@ def save_state(cursor, expID, state, why_now, var_IDs):
     data_fn = lambda (v,n): (expID, var_IDs[n], time, v, why_now,
                              var_of_interest(n))
     data = map(data_fn, v_list)
-    do_stmt(cursor, stmt, data)
+
+    stmt = ("INSERT INTO var_value "
+            "(experiment, variable, at_time, value, why_now, of_interest) "
+            "VALUES (%s, %s, %s, %s, %s, %s)")
+
+    if indiv is None:
+        do_stmt(cursor, stmt, data)
+        return
+    else:
+        stmt = stmt + " RETURNING id"
+        v_stmt = "INSERT INTO indiv_var (individual, value) VALUES (%s, %s)"
+
+        for row in data:
+            value_id = do_stmt(cursor, stmt, row, retval=True)[0][0]
+            #print "RETURN FROM indiv_var: '" + str(value_id) + "'"
+            do_stmt(cursor, v_stmt, (indiv, value_id))
 
 def save_tags(cursor, expID, tags):
     """Records the tags associated with a simulation."""
@@ -163,15 +190,32 @@ def import_result(settings, init_params, delta_param, delta_incr, pre_delta,
 
     # Create a new experiment
     expID = create_experiment(cursor, model_ID)
+    # Create the two individuals associated with the experiment
+    vi_pre = create_individual(cursor, expID, False)
+    vi_pst = create_individual(cursor, expID, True)
     # Save the initial parameter values
-    save_params(cursor, expID, init_params, param_IDs)
+    save_params(cursor, expID, init_params, param_IDs, vi_pre, vi_pst,
+                delta_param)
     # Save the delta
-    delta_time = post_deltas[0][0]
-    save_delta(cursor, expID, delta_param, delta_incr, delta_time, param_IDs)
+    delta_time = post_deltas[0][1]
+    deltaID = save_delta(cursor, expID, delta_param, delta_incr, delta_time,
+                         param_IDs)
+    stmt = "INSERT INTO indiv_param (individual, value) VALUES (%s, %s)"
+    data = (vi_pst, deltaID)
+    do_stmt(cursor, stmt, data)
+
     # Save the state history
     why_now = 1
-    for state in [pre_delta] + post_deltas:
-        save_state(cursor, expID, state, why_now, var_IDs)
+    all_states = [pre_delta] + post_deltas
+    last_state = len(all_states)
+    for state in all_states:
+        if why_now == 1:
+            indiv = vi_pre
+        elif why_now == last_state:
+            indiv = vi_pst
+        else:
+            indiv = None
+        save_state(cursor, expID, state, why_now, var_IDs, indiv)
         why_now += 1
 
     # Tag the simulation
