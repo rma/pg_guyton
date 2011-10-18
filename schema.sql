@@ -176,3 +176,9 @@ CREATE TABLE indiv_var (
   value bigint REFERENCES var_value (id) ON DELETE CASCADE ON UPDATE CASCADE,
   PRIMARY KEY (id)
 );
+
+-- These indices are created to improve the efficiency of searching the set of
+-- experiments or virtual individuals for those which match a given criteria
+-- on the parameter and variable values.
+CREATE INDEX ON param_value (parameter, value);
+CREATE INDEX ON var_value (variable, value);
