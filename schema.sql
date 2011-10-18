@@ -144,6 +144,12 @@ CREATE TABLE var_value (
   UNIQUE (id)
 );
 
+-- Each simulation represents one or more virtual individuals. With the delta
+-- perturbation simulations (as per the Morris meth), each simulation consists
+-- of two virtual individuals; the pre-perturbation individual and the
+-- post-perturbation individual. Each virtual individual is represented by a
+-- reference to the simulation and an indication of whether the individual is
+-- of the pre-perturbation or post-perturbation type.
 CREATE TABLE individual (
   id SERIAL,
   experiment integer REFERENCES experiment ON DELETE CASCADE ON UPDATE CASCADE,
@@ -151,6 +157,10 @@ CREATE TABLE individual (
   PRIMARY KEY (id)
 );
 
+-- The initial parameters for each virtual individual are recorded. Since no
+-- changes are permitted to the initial parameters (which would represent a
+-- distinct individual) it is only necessary to reference a single value in
+-- the "param_value" table for each model parameter.
 CREATE TABLE indiv_param (
   id BIGSERIAL, -- Django doesn't support multiple-field primary keys.
   individual integer REFERENCES individual ON DELETE CASCADE ON UPDATE CASCADE,
@@ -158,6 +168,8 @@ CREATE TABLE indiv_param (
   PRIMARY KEY (id)
 );
 
+-- The steady-state variables (ie, t = 4 weeks) are recorded for each virtual
+-- individual, in exactly the same manner as the initial parameters.
 CREATE TABLE indiv_var (
   id BIGSERIAL, -- Django doesn't support multiple-field primary keys.
   individual integer REFERENCES individual ON DELETE CASCADE ON UPDATE CASCADE,
