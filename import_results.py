@@ -86,7 +86,7 @@ def save_params(cursor, expID, p_init, param_IDs, pre_ID, post_ID, delta_param):
     """Records the initial parameters for a simulation."""
     stmt = ("INSERT INTO param_value "
             "(experiment, parameter, at_time, value, of_interest) "
-            "VALUES (%s, %s, %s, %s, %s) RETURNING id, parameter")
+            "VALUES (%s, %s, %s, %s, %s)")
 
     params = par_list()
 
@@ -101,15 +101,17 @@ def save_params(cursor, expID, p_init, param_IDs, pre_ID, post_ID, delta_param):
     d_name = del_list()[delta_param]
     d_id = param_IDs[d_name]
 
-    p_stmt = "INSERT INTO indiv_param (individual, value) VALUES (%s, %s)"
+    p_stmt = ("INSERT INTO indiv_param (individual, parameter, value) "
+              "VALUES (%s, %s, %s)")
     for row in data:
-        (value_id, param_id) = do_stmt(cursor, stmt, row, retval=True)[0]
-        #print str(value_id) + " ... " + str(param_id)
-        do_stmt(cursor, p_stmt, (pre_ID, value_id))
+        (_, param_id, _, value, _) = row
+        do_stmt(cursor, stmt, row)
+        do_stmt(cursor, p_stmt, (pre_ID, param_id, value))
         if param_id != d_id:
-            do_stmt(cursor, p_stmt, (post_ID, value_id))
+            do_stmt(cursor, p_stmt, (post_ID, param_id, value))
 
-def save_delta(cursor, expID, delta_param, delta_incr, at_time, param_IDs):
+def save_delta(cursor, expID, indiv_ID, delta_param, delta_incr, at_time,
+               param_IDs):
     """Records the delta perturbation for a simulation."""
     pname = del_list()[delta_param]
     paramID = param_IDs[pname]
@@ -126,6 +128,10 @@ def save_delta(cursor, expID, delta_param, delta_incr, at_time, param_IDs):
         return
     else:
         new_val = delta_incr + matches[0][0]
+
+    p_stmt = ("INSERT INTO indiv_param (individual, parameter, value) "
+              "VALUES (%s, %s, %s)")
+    do_stmt(cursor, p_stmt, (indiv_ID, paramID, new_val))
 
     stmt = ("INSERT INTO param_value "
             "(experiment, parameter, at_time, value, of_interest) "
@@ -166,13 +172,13 @@ def save_state(cursor, expID, state, why_now, var_IDs, indiv=None):
         do_stmt(cursor, stmt, data)
         return
     else:
-        stmt = stmt + " RETURNING id"
-        v_stmt = "INSERT INTO indiv_var (individual, value) VALUES (%s, %s)"
+        v_stmt = ("INSERT INTO indiv_var (individual, variable, value) "
+                  "VALUES (%s, %s, %s)")
 
         for row in data:
-            value_id = do_stmt(cursor, stmt, row, retval=True)[0][0]
-            #print "RETURN FROM indiv_var: '" + str(value_id) + "'"
-            do_stmt(cursor, v_stmt, (indiv, value_id))
+            (_, var_id, _, value, _, _) = row
+            do_stmt(cursor, stmt, row)
+            do_stmt(cursor, v_stmt, (indiv, var_id, value))
 
 def save_tags(cursor, expID, tags):
     """Records the tags associated with a simulation."""
@@ -198,11 +204,8 @@ def import_result(settings, init_params, delta_param, delta_incr, pre_delta,
                 delta_param)
     # Save the delta
     delta_time = post_deltas[0][1]
-    deltaID = save_delta(cursor, expID, delta_param, delta_incr, delta_time,
-                         param_IDs)
-    stmt = "INSERT INTO indiv_param (individual, value) VALUES (%s, %s)"
-    data = (vi_pst, deltaID)
-    do_stmt(cursor, stmt, data)
+    deltaID = save_delta(cursor, expID, vi_pst, delta_param, delta_incr,
+                         delta_time, param_IDs)
 
     # Save the state history
     why_now = 1

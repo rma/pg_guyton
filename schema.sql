@@ -164,8 +164,10 @@ CREATE TABLE individual (
 CREATE TABLE indiv_param (
   id BIGSERIAL, -- Django doesn't support multiple-field primary keys.
   individual integer REFERENCES individual ON DELETE CASCADE ON UPDATE CASCADE,
-  value bigint REFERENCES param_value (id) ON DELETE CASCADE ON UPDATE CASCADE,
-  PRIMARY KEY (id)
+  parameter integer REFERENCES parameter ON DELETE CASCADE ON UPDATE CASCADE,
+  value double precision NOT NULL,
+  PRIMARY KEY (individual, parameter),
+  UNIQUE (id)
 );
 
 -- The steady-state variables (ie, t = 4 weeks) are recorded for each virtual
@@ -173,12 +175,14 @@ CREATE TABLE indiv_param (
 CREATE TABLE indiv_var (
   id BIGSERIAL, -- Django doesn't support multiple-field primary keys.
   individual integer REFERENCES individual ON DELETE CASCADE ON UPDATE CASCADE,
-  value bigint REFERENCES var_value (id) ON DELETE CASCADE ON UPDATE CASCADE,
-  PRIMARY KEY (id)
+  variable integer REFERENCES variable ON DELETE CASCADE ON UPDATE CASCADE,
+  value double precision NOT NULL,
+  PRIMARY KEY (individual, variable),
+  UNIQUE (id)
 );
 
 -- These indices are created to improve the efficiency of searching the set of
 -- experiments or virtual individuals for those which match a given criteria
 -- on the parameter and variable values.
-CREATE INDEX ON param_value (parameter, value);
-CREATE INDEX ON var_value (variable, value);
+CREATE INDEX ON indiv_param (parameter, value);
+CREATE INDEX ON indiv_var (variable, value);
