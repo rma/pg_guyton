@@ -1,1 +1,4 @@
 *.pyc
+individuals.csv
+indiv_params.csv
+indiv_vars.csv
