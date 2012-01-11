@@ -25,9 +25,9 @@ Example:
     # cat individuals.csv | psql --dbname DATABASE \
       -c "COPY individual (id, perturbed) FROM STDIN WITH CSV"
     # cat indiv_params.csv | psql --dbname DATABASE \
-      -c "COPY indiv_params (individual, parameter, value) FROM STDIN WITH CSV"
+      -c "COPY indiv_param (individual, parameter, value) FROM STDIN WITH CSV"
     # cat indiv_vars.csv | psql --dbname DATABASE \
-      -c "COPY indiv_vars (individual, variable, value) FROM STDIN WITH CSV"
+      -c "COPY indiv_var (individual, variable, value) FROM STDIN WITH CSV"
 
 =head1 DESCRIPTION
 
