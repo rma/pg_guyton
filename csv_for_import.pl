@@ -22,14 +22,12 @@ Usage:
 Example:
 
     # csv_for_import.pl -v -f data1.txt -f data2.txt
-    # psql --dbname DATABASE
-    DATABASE=> \COPY individual (id, perturbed)
-               FROM 'individuals.csv' WITH CSV;
-    DATABASE=> \COPY indiv_param (individual, parameter, value)
-               FROM 'indiv_params.csv' WITH CSV;
-    DATABASE=> \COPY indiv_var (individual, variable, value)
-               FROM 'indiv_vars.csv' WITH CSV;
-    DATABASE=> \q
+    # cat individuals.csv | psql --dbname DATABASE \
+      -c "COPY individual (id, perturbed) FROM STDIN WITH CSV"
+    # cat indiv_params.csv | psql --dbname DATABASE \
+      -c "COPY indiv_params (individual, parameter, value) FROM STDIN WITH CSV"
+    # cat indiv_vars.csv | psql --dbname DATABASE \
+      -c "COPY indiv_vars (individual, variable, value) FROM STDIN WITH CSV"
 
 =head1 DESCRIPTION
 

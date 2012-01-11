@@ -96,3 +96,31 @@ exist in the database will be automatically created.
 
 **NOTE:** The `import_results.py` script currently only supports perturbation
 experiments performed with the Guyton model (1992 version).
+
+Importing virtual individuals
+-------------------------------------------------------------------------------
+
+A separate database of virtual individuals (i.e., pairs of parameter values
+and the resulting steady-state variables) can be created using the script
+`csv_for_import.pl` and `psql`:
+
+    # csv_for_import.pl -v -f data1.txt -f data2.txt
+    # cat individuals.csv | psql --dbname DATABASE \
+      -c "COPY individual (id, perturbed) FROM STDIN WITH CSV"
+    # cat indiv_params.csv | psql --dbname DATABASE \
+      -c "COPY indiv_params (individual, parameter, value) FROM STDIN WITH CSV"
+    # cat indiv_vars.csv | psql --dbname DATABASE \
+      -c "COPY indiv_vars (individual, variable, value) FROM STDIN WITH CSV"
+
+Notes
+===============================================================================
+
+On Mac OS X, assuming that PostgreSQL has been installed via `macports`, the
+server is started and stopped using the following commands:
+
+    # PGDAEMON=`/Library/LaunchDaemons/org.macports.postgresqlXX-server.plist`
+    # sudo launchctl load -w $PGDAEMON
+    # sudo launchctl unload -w $PGDAEMON
+
+Remember to replace the `XX` in `$PGDAEMON` with the appropriate version
+number (e.g., '84' for PostgreSQL 8.4 and '91' for PostgreSQL 9.1).
