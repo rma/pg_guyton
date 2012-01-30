@@ -220,7 +220,7 @@ sub write_row($$$) {
     my @data = @$data;
 
     for my $i (0 .. $#data) {
-        print $output_fh $row_ix . "," . $i . "," . $data[$i] . "\n";
+        print $output_fh $row_ix . "," . $i . "," . $data[$i] * 1 . "\n";
     }
 }
 
@@ -247,7 +247,9 @@ sub process_file($$$$$) {
         my $init_params = $$output{'params'};
         my @init_params = @$init_params;
         my @delta_params = @init_params;
-        $delta_params[$$output{'delta_param'}] += $$output{'delta_incr'};
+        my $name_of_delta = $delta_list[$$output{'delta_param'}];
+        my $delta_index = index_of($name_of_delta, \@param_list);
+        $delta_params[$delta_index] += $$output{'delta_incr'};
 
         my $init_vars = $$output{'vars_pre'};
         my @init_vars = @$init_vars;
