@@ -220,7 +220,15 @@ sub write_row($$$) {
     my @data = @$data;
 
     for my $i (0 .. $#data) {
-        print $output_fh $row_ix . "," . $i . "," . $data[$i] * 1 . "\n";
+        my $value = $data[$i] * 1;
+        if (abs($value) < 1e-300) {
+            $value = 0;
+        } elsif ($value > 1e300) {
+            $value = 1e300;
+        } elsif ($value < -1e300) {
+            $value = -1e300;
+        }
+        print $output_fh $row_ix . "," . $i . "," . $value * 1 . "\n";
     }
 }
 
